@@ -11,4 +11,3 @@ This repository directly maintains the ROS 1 package
 
 The upstream project is no longer actively maintained. XGC2 hosts the source
 here so future maintenance can be reviewed and released from this repository.
-XGC2 Wheeltec vehicle resources
