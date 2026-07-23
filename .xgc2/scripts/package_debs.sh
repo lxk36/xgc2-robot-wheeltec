@@ -8,7 +8,13 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 product_version() {
-  awk -F': *' '/^version:[[:space:]]*/ {print $2; exit}' "$REPO_ROOT/.xgc2/product.yml"
+  local version
+  version="$(sed -nE 's/^version:[[:space:]]*([^[:space:]#]+).*$/\1/p' "$REPO_ROOT/.xgc2/product.yml" | head -n 1)"
+  if [[ -z "$version" ]]; then
+    echo "unable to read product version from $REPO_ROOT/.xgc2/product.yml" >&2
+    return 1
+  fi
+  printf '%s\n' "$version"
 }
 
 VERSION="${PACKAGE_VERSION:-$(product_version)}"

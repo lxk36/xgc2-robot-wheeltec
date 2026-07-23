@@ -4,7 +4,7 @@ set -euo pipefail
 ROS_DISTRO="${ROS_DISTRO:-melodic}"
 PREFIX="/opt/ros/$ROS_DISTRO"
 
-# shellcheck disable=SC1090
+# shellcheck disable=SC1090,SC1091
 source "$PREFIX/setup.bash"
 
 for deb_package in "ros-$ROS_DISTRO-xgc2-wheeltec-driver" "ros-$ROS_DISTRO-xgc2-wheeltec-swarm-ros-bridge" "ros-$ROS_DISTRO-xgc2-wheeltec-onboard"; do
