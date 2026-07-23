@@ -1,0 +1,5 @@
+/.ci/
+/.work/
+/debs/
+/ugv-auto-launch/
+__pycache__/
